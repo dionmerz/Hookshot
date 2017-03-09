@@ -427,12 +427,12 @@ Hero.prototype.draw = function (ctx) {
 
   this.inventory.draw();
 
-  ctx.save();
-  ctx.beginPath();
-  ctx.strokeStyle ="Yellow";
-  ctx.rect(this.x, this.y, this.width, this.height);
-  ctx.stroke();
-  ctx.restore();
+//  ctx.save();
+//  ctx.beginPath();
+//  ctx.strokeStyle ="Yellow";
+//  ctx.rect(this.x, this.y, this.width, this.height);
+//  ctx.stroke();
+//  ctx.restore();
 
   if(this.wasHooked && !this.hooked) {
     ;      if(this.game.direction === "left") {
