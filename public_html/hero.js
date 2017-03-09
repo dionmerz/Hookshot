@@ -387,9 +387,8 @@ Hero.prototype.update = function () {
           this.y = this.StartY;
           this.inventory.Revive = null;
           this.game.heroIsDead = false;
-          //this.isDead = false;
-
           this.reset();
+          backgroundMusic.play(this.game.nextScene);
 
 
         } else {

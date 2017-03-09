@@ -24,6 +24,7 @@ StartButton.prototype.update = function() {
           this.game.timer.gameTime = 0;
           this.game.heroIsDead = false;
           this.game.offset = 0;
+          this.game.deadTime = 0;
 
           this.game.changeScene = true;
           this.game.nextScene = 1;
