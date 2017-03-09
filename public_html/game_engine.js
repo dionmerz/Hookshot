@@ -59,6 +59,7 @@ function GameEngine() {
     this.offset = null;
     this.time = null;
     this.heroIsDead = null;
+    this.deadTime = null;
 }
 
 GameEngine.prototype.init = function (ctx) {
@@ -236,8 +237,12 @@ GameEngine.prototype.update = function () {
 };
 
 GameEngine.prototype.loop = function () {
-
-  if (!this.heroIsDead) this.time = this.timer.gameTime - this.scoreTimer;
+  // If hero is dead
+  if (!this.heroIsDead)
+    this.time = this.timer.gameTime - this.scoreTimer - this.deadTime;
+  // In the game
+  else
+    this.deadTime = this.timer.gameTime - this.time;
 
     document.getElementById("minutes").innerHTML = Math.floor(this.time / 60);
     document.getElementById("seconds").innerHTML = Math.floor(this.time) % 60;

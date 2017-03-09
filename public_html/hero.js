@@ -386,8 +386,8 @@ Hero.prototype.update = function () {
           this.x = this.StartX;
           this.y = this.StartY;
           this.inventory.Revive = null;
-          
-          this.isDead = false;
+          this.game.heroIsDead = false;
+          //this.isDead = false;
 
           this.reset();
 
@@ -659,6 +659,7 @@ Hero.prototype.draw = function (ctx) {
   if (this.isDead) {
     // Update for game engine
     this.game.heroIsDead = this.isDead;
+    this.game.deadTime = 0;
 
     //stop the music when dead.
     backgroundMusic.stop();
