@@ -9,7 +9,7 @@ function StartButton(x, y, game) {
 StartButton.prototype.update = function() {
     if (this.game.clicked) {
 
-      
+
 
       this.targetX = this.game.click.x;
       this.targetY = this.game.click.y;
@@ -19,6 +19,11 @@ StartButton.prototype.update = function() {
           //music, start the bgm from the beginning.
           //backgroundMusic.currentTime = 0;
           backgroundMusic.play(1);
+
+          // Start the timer;
+          this.game.timer.gameTime = 0;
+          this.game.heroIsDead = false;
+          this.game.offset = 0;
 
           this.game.changeScene = true;
           this.game.nextScene = 1;

@@ -132,6 +132,8 @@ Hero.prototype.hasKey = function() {
 };
 
 Hero.prototype.update = function () {
+    // You lose
+    if (this.game.score <= 0) this.isDead = true;
 
     if (this.inventory.lowGrav !== null && !this.inventory.lowGrav.empty) {
         this.fallSpeed = 3;
@@ -203,6 +205,9 @@ Hero.prototype.update = function () {
 
 
       else if (this.goToNext && this.game.anotherCount - this.doorAnimationDone > 80) {
+        // Bonus
+        this.game.offset += 500;
+
         this.game.changeScene = true;
         this.game.nextScene ++;
         this.reset();
@@ -381,7 +386,11 @@ Hero.prototype.update = function () {
           this.x = this.StartX;
           this.y = this.StartY;
           this.inventory.Revive = null;
+          
+          this.isDead = false;
+
           this.reset();
+
 
         } else {
         this.game.changeScene = true;
@@ -648,7 +657,8 @@ Hero.prototype.draw = function (ctx) {
   this.drawItems(ctx);
 
   if (this.isDead) {
-
+    // Update for game engine
+    this.game.heroIsDead = this.isDead;
 
     //stop the music when dead.
     backgroundMusic.stop();
